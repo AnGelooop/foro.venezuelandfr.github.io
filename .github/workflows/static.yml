@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venezueland Freeroam</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #222;
+            background-image: url('https://path-to-your-background-image.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            color: #ddd;
+            overflow-x: hidden;
+        }
+        header {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(34, 34, 34, 0.8);
+        }
+        header h1 {
+            color: #ddd;
+            margin: 0;
+        }
+        #updates-container {
+            position: fixed;
+            top: 10%;
+            left: -300px; /* Inicialmente fuera de la vista */
+            width: 300px;
+            background-color: rgba(34, 34, 34, 0.9);
+            color: #ddd;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            border-radius: 8px;
+            padding: 10px;
+            transition: left 0.5s ease, opacity 0.5s ease;
+            opacity: 0;
+            z-index: 1000;
+            overflow: hidden;
+        }
+        #updates-toggle {
+            position: fixed;
+            top: 5%; /* Subido un poco */
+            left: 10px; /* Alineado a la izquierda del contenedor */
+            width: 40px;
+            height: 40px;
+            background-color: #333;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            z-index: 1001;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            font-size: 24px; /* Tamaño del emoji */
+            font-family: Arial, sans-serif; /* Asegura que el emoji se muestre correctamente */
+        }
+        #updates-toggle.new::before {
+            content: '🆕'; /* Emoji de "New" */
+            animation: fadeIn 0.5s forwards;
+        }
+        #updates-toggle.x::before {
+            content: '❌'; /* Emoji de "X" */
+            animation: fadeIn 0.5s forwards;
+        }
+        #updates-container.show {
+            left: 0; /* Mueve el contenedor a la vista */
+            opacity: 1;
+            animation: fadeIn 0.5s forwards;
+        }
+        #updates-container.hide {
+            opacity: 0;
+            left: -300px; /* Mueve el contenedor fuera de la vista */
+            animation: fadeOut 0.5s forwards;
+        }
+        #updates-toggle.hide {
+            opacity: 0;
+            transform: scale(0); /* Desaparece el emoji */
+            animation: fadeOut 0.5s forwards;
+        }
+        #updates-toggle.show {
+            opacity: 1;
+            animation: fadeIn 0.5s forwards;
+        }
+        section {
+            padding: 20px;
+            background-color: rgba(34, 34, 34, 0.8);
+            margin: 20px auto;
+            border-radius: 8px;
+            max-width: 800px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            opacity: 0;
+            animation: fadeIn 2s forwards;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            font-size: 12px;
+        }
+        .social-icons img {
+            width: 40px;
+            margin: 0 10px;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+        #updates-container h2 {
+            text-align: center;
+            margin: 0;
+            color: #ddd;
+        }
+        #updates-container .update-item {
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Venezueland freeroam</h1>
+    </header>
+    <section id="home">
+        <h2>Bienvenido a Venezueland Freeroam</h2>
+        <p>Este es el foro donde puedes discutir sobre cualquier tema que te interese.</p>
+    </section>
+    <section id="topics">
+        <h2>Temas Populares</h2>
+        <ul>
+            <li>Tema 1: Introducción</li>
+            <li>Tema 2: Normativas</li>
+            <li>Tema 3: Noticias y Anuncios</li>
+        </ul>
+    </section>
+    <section id="contact">
+        <h2>Contacto</h2>
+        <p>Para más información, envíanos un correo a info@mi-foro.com.</p>
+    </section>
+    <section id="social-media">
+        <h2>Síguenos en Redes Sociales</h2>
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+            </a>
+            <a href="https://twitter.com" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/en/6/60/Twitter_Logo_as_of_2021.svg" alt="Twitter">
+            </a>
+            <a href="https://instagram.com" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+            </a>
+        </div>
+    </section>
+    <footer>
+        <p>&copy; 2024 +Venezueland Freeroam. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Contenedor de Actualizaciones -->
+    <div id="updates-container">
+        <h2>Actualizaciones 1.0</h2>
+        <div class="update-item">Última actualización: <span style="color: gold;">¡Nueva característica añadida!</span></div>
+        <!-- Añade más elementos de actualización aquí -->
+    </div>
+
+    <!-- Botón para mostrar/ocultar actualizaciones -->
+    <div id="updates-toggle" class="new"></div>
+
+    <script>
+        window.onload = function() {
+            document.querySelectorAll('header, section, footer').forEach(el => {
+                el.style.display = 'block';
+                el.style.animation = 'fadeIn 2s forwards';
+            });
+            
+            setTimeout(() => {
+                document.getElementById('updates-toggle').style.opacity = 1;
+            }, 2000);
+        };
+
+        const updatesToggle = document.getElementById('updates-toggle');
+        const updatesContainer = document.getElementById('updates-container');
+
+        updatesToggle.onclick = () => {
+            if (updatesContainer.classList.contains('show')) {
+                updatesContainer.classList.remove('show');
+                updatesContainer.classList.add('hide');
+                updatesToggle.classList.remove('x');
+                updatesToggle.classList.add('new');
+            } else {
+                updatesContainer.classList.add('show');
+                updatesContainer.classList.remove('hide');
+                updatesToggle.classList.remove('new');
+                updatesToggle.classList.add('x');
+            }
+        };
+    </script>
+</body>
+</html>
